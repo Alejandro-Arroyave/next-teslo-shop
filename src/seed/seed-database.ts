@@ -5,12 +5,18 @@ import { capitalize } from "../utils/index";
 async function main() {
   // Delete previous registers
   // await Promise.all([
-  await prisma.product.deleteMany();
+  await prisma.user.deleteMany();
   await prisma.productImage.deleteMany();
+  await prisma.product.deleteMany();
   await prisma.category.deleteMany();
   // ]);
 
-  const { categories, products } = initialData;
+  const { categories, products, users } = initialData;
+
+  // Users
+  await prisma.user.createMany({
+    data: users,
+  });
 
   // Categories
   const categoriesData = categories.map((category) => ({
