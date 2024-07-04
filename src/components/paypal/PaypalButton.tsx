@@ -64,10 +64,12 @@ const PaypalButton = ({ orderId, amount }: Props) => {
       </div>
     );
   return (
-    <PayPalButtons
-      createOrder={handleCreateOrder}
-      onApprove={handleOnApprove}
-    />
+    <div className=" relative z-0">
+      <PayPalButtons
+        createOrder={handleCreateOrder}
+        onApprove={handleOnApprove}
+      />
+    </div>
   );
 };
 

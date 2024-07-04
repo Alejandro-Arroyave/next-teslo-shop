@@ -3,7 +3,6 @@ import { Title } from "@/components";
 import OrderStatus from "@/components/orders/OrderStatus";
 import PaypalButton from "@/components/paypal/PaypalButton";
 import { currencyFormat } from "@/utils";
-import clsx from "clsx";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -51,7 +50,7 @@ export default async function OrdersIdPage({ params }: Props) {
                 <div>
                   <p>{item.product.title}</p>
                   <p>${item.price.toFixed(2)}</p>
-                  <p>Subtotal: ${currencyFormat(item.price * item.quantity)}</p>
+                  <p>Subtotal: {currencyFormat(item.price * item.quantity)}</p>
                   {/* <QuantitySelector quantity={3} /> */}
 
                   <button className="underline mt-3">Remove</button>

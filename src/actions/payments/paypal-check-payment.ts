@@ -76,13 +76,13 @@ const getPaypalBearerToken = async () => {
     method: "POST",
     headers: myHeaders,
     body: urlencoded,
-    redirect: "follow",
   };
 
   try {
     const result = await fetch(PAYPAL_OAUTH_URL, {
       ...requestOptions,
       cache: "no-store",
+      redirect: "follow",
     }).then((r) => r.json());
 
     return result.access_token;
@@ -103,13 +103,13 @@ const verifyPaypalPayment = async (
   const requestOptions = {
     method: "GET",
     headers: myHeaders,
-    redirect: "follow",
   };
 
   try {
     const response = await fetch(paypalOrderUrl, {
       ...requestOptions,
       cache: "no-store",
+      redirect: "follow",
     }).then((r) => r.json());
     return response;
   } catch (error) {
